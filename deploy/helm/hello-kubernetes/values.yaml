@@ -16,7 +16,7 @@ deployment:
   container:
     image:
       repository: "vaibhavmehta/hello-kubernetes"
-      tag: "1.10.4" # uses chart appVersion if not provided
+      tag: "1.10.3" # uses chart appVersion if not provided
       pullPolicy: IfNotPresent
     port: 8080
 
