@@ -25,6 +25,11 @@ jobs:
         run: |
           echo "IMAGE=$CONTAINER_REGISTRY/$CONTAINER_IMAGE" >> $GITHUB_ENV
           echo "IMAGE_VERSION=$(cat src/app/package.json | jq -r .version)" >> $GITHUB_ENV
+
+      - name: scan for the service changes
+        run: |
+          echo ::set-env name=TF_VAR_instance_label::${GITHUB_REPOSITORY#*/}-${GITHUB_SHA:0:7}
+
           
       - name: Build additional image tag variables
         run: |
