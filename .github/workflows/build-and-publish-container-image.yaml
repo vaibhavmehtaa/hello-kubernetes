@@ -28,7 +28,8 @@ jobs:
 
       - name: scan for the service changes
         run: |
-          echo ::set-env name=TF_VAR_instance_label::${GITHUB_REPOSITORY#*/}-${GITHUB_SHA:0:7}
+          echo ::set-env name=GHA_BRANCH::$(echo $GITHUB_REF | awk -F / '{print $3}')
+        shell: bash
 
           
       - name: Build additional image tag variables
